@@ -25,23 +25,23 @@ pipeline {
         }
         stage("Docker Image Build") {
            steps {
-               sh "docker build -t redleon1/apache2_smboard:${BUILD_NUMBER} ./docker/apache2/"
-               sh "docker build -t redleon1/smboard_smboard:${BUILD_NUMBER} ./docker/smboard/"
-               sh "docker build -t redleon1/mariadb_smboard:${BUILD_NUMBER} ./docker/mariadb/"
+               sh "docker build -t donggyu99/apache2_smboard:${BUILD_NUMBER} ./docker/apache2/"
+               sh "docker build -t donggyu99/smboard_smboard:${BUILD_NUMBER} ./docker/smboard/"
+               sh "docker build -t donggyu99/mariadb_smboard:${BUILD_NUMBER} ./docker/mariadb/"
            }
         }
         stage("Docker Image Push") {
            steps {
-               sh "docker push redleon1/apache2_smboard:${BUILD_NUMBER}"
-               sh "docker push redleon1/smboard_smboard:${BUILD_NUMBER}" 
-               sh "docker push redleon1/mariadb_smboard:${BUILD_NUMBER}" 
+               sh "docker push donggyu99/apache2_smboard:${BUILD_NUMBER}"
+               sh "docker push donggyu99/smboard_smboard:${BUILD_NUMBER}" 
+               sh "docker push donggyu99/mariadb_smboard:${BUILD_NUMBER}" 
            } 
         }
         stage("Docker Image Clean up") {
            steps {
-               sh "docker image rm redleon1/apache2_smboard:${BUILD_NUMBER}" 
-               sh "docker image rm redleon1/smboard_smboard:${BUILD_NUMBER}" 
-               sh "docker image rm redleon1/mariadb_smboard:${BUILD_NUMBER}" 
+               sh "docker image rm donggyu99/apache2_smboard:${BUILD_NUMBER}" 
+               sh "docker image rm donggyu99/smboard_smboard:${BUILD_NUMBER}" 
+               sh "docker image rm donggyu99/mariadb_smboard:${BUILD_NUMBER}" 
            }
         }
         stage("Minikube start") {
