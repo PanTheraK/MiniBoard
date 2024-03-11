@@ -16,7 +16,7 @@ spec:
       volumes:
       - name: mariadb-data
         hostPath: 
-          path: /home/dgkim/volume/mariadb
+          path: /home/ec2-user/volume/mariadb
       containers:
       - name: mariadb
         image: docker.io/donggyu99/mariadb_smboard:{{VERSION}}
